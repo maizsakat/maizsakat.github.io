@@ -36,11 +36,12 @@
 
       BABYLON.SceneLoader.Load("scenes/","SampleScene.babylon", engine, function (scene) {
         scene.activeCamera.attachControl(canvas);
-      })
         // Register a render loop to repeatedly render the scene
         engine.runRenderLoop(function () {
                 scene.render();
         });
+      })
+
 
         // Watch for browser/canvas resize events
         window.addEventListener("resize", function () {
