@@ -36,7 +36,10 @@
 
       BABYLON.SceneLoader.Load("scenes/","SampleScene.babylon", engine, function (scene) {
         scene.activeCamera.attachControl(canvas);
+        scene.debugLayer.show();
+
         // Register a render loop to repeatedly render the scene
+
         engine.runRenderLoop(function () {
                 scene.render();
         });
