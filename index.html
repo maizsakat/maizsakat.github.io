@@ -37,7 +37,12 @@
       BABYLON.SceneLoader.Load("scenes/","SampleScene.babylon", engine, function (scene) {
         scene.activeCamera.attachControl(canvas);
         scene.debugLayer.show();
+        scene.onPointerDown = function castRay(){
+            var ray = scene.createPickingRay(scene.pointerX, scene.pointerY, BABYLON.Matrix.Identity(), scene.activeCamera);
 
+            var hit = scene.pickWithRay(ray);
+            if (hit.pickedMesh) console.log(hit.pickedMesh.name)
+          }
         // Register a render loop to repeatedly render the scene
 
         engine.runRenderLoop(function () {
